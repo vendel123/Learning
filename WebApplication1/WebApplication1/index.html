@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+770
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+        window.onload = function () {
+            var canvas1 = document.getElementById("canvas1");
+            var context = canvas1.getContext("2d");
+
+
+            var a = (Math.PI * 2 / 60)
+
+
+            /*
+            for (var i = 0; i < 360; i++) {
+                context.moveTo(320, 320);
+                context.lineTo(320+(Math.cos(i*a)*160), 320+(Math.sin(i*a)*160));
+            }
+            */
+
+            window.setInterval(function () {
+
+                // b++;
+                // b += 1;
+                // b = b + 1;
+
+                var date_ = new Date();
+
+                var minutes = date_.getMinutes();
+                var hours = date_.getHours();
+
+
+
+                context.clearRect(0, 0, 640, 640);
+                context.beginPath();
+
+
+                context.moveTo(320, 320);
+                context.lineTo(320 + (Math.cos(hours * a) * 100), 320 + (Math.sin(hours * a) * 100));
+
+
+                context.moveTo(320, 320);
+                context.lineTo(320 + (Math.cos(minutes * a) * 160), 320 + (Math.sin(minutes * a) * 160));
+
+
+                context.stroke();
+
+                //context.clearRect(0, 0, 640, 640);
+                //context.beginPath();
+                //context.moveTo(320, 320);
+                //context.lineTo(320 + (Math.cos(b * a) * 160), 320 + (Math.sin(b * a) * 160));
+                //context.stroke();
+
+
+            }, 1000 / 30);
+
+
+
+        };
+    </script>
+</head>
+<body>
+    <canvas id="canvas1" height="640" width="640"></canvas>
+</body>
+</html>
